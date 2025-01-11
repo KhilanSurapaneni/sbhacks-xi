@@ -5,7 +5,7 @@ import { getAuth } from "firebase-admin/auth";
 import { logger } from "firebase-functions";
 import { onRequest } from "firebase-functions/v2/https";
 
-import serviceAccount from "/Users/khilansurapaneni/sbhacks-xi/backend/sbhacks-xi-30d55-firebase-adminsdk-u6lmd-abcfe7452a.json" assert { type: "json" };
+import serviceAccount from "/Users/shreyasrajesh/Software\ Projects/SB\ Hacks\ XI/sbhacks-xi/backend/sbhacks-xi-a4fd0-firebase-adminsdk-oybuw-1689b30588.json" assert { type: "json" };
 
 initializeApp({
     credential: cert(serviceAccount),
