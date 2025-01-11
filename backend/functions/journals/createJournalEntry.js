@@ -1,4 +1,4 @@
-import { storage, firestore, logger, onRequest, auth } from "../utils/firebase.js"; // Firebase utilities
+import { storage, firestore, logger, onRequest } from "../utils/firebase.js"; // Firebase utilities
 import { decodeToken } from "../auth/decodeToken.js";
 import { Timestamp } from "firebase-admin/firestore"; // Firestore Timestamp
 import path from "path"; // Node.js path utilities
@@ -16,15 +16,15 @@ export const createJournalEntry = onRequest(async(req, res) => {
         return res.status(400).json({ error: "Invalid content type, expected multipart/form-data" }); // Handle invalid content type
     }
 
-    // const idToken = req.headers.authorization?.split("Bearer ")[1]; // Get the ID token from the Authorization header
-    // const user = await decodeToken(idToken);
+    const idToken = req.headers.authorization?.split("Bearer ")[1]; // Get the ID token from the Authorization header
+    const user = await decodeToken(idToken);
 
-    // if (!user) {
-    //     return res.status(401).json({ error: "Unauthorized" }); // Return 401 Unauthorized if user is not authenticated
-    // }
+    if (!user) {
+        return res.status(401).json({ error: "Unauthorized" }); // Return 401 Unauthorized if user is not authenticated
+    }
 
     
-    // const uid = user.uid;
+    const uid = user.uid;
 
     const bb = busboy({ headers: req.headers }); // Initialize Busboy for processing form-data
     const fields = {}; // Object to store form fields
@@ -113,7 +113,7 @@ export const createJournalEntry = onRequest(async(req, res) => {
                 descriptionAudio: audioUrl || null, // Uploaded audio file URL (if any)
                 publicMediaUrls: publicMediaUrls, // Uploaded media file public URLs
                 localMediaPaths: localMediaPaths, // Local paths of uploaded media files
-                //uid: uid, // User ID of the journal entry creator
+                uid: uid, // User ID of the journal entry creator
             };
 
             // Save the journal entry data in the 'journalEntries' Firestore collection
