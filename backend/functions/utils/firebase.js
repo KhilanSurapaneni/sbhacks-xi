@@ -5,10 +5,11 @@ import { getAuth } from "firebase-admin/auth";
 import { logger } from "firebase-functions";
 import { onRequest } from "firebase-functions/v2/https";
 
-import serviceAccount from "/Users/khilansurapaneni/sbhacks-xi/backend/sbhacks-xi-30d55-firebase-adminsdk-u6lmd-abcfe7452a.json" assert { type: "json" };
+import serviceAccount from "/Users/khilansurapaneni/sbhacks-xi/backend/sbhacks-xi-a4fd0-firebase-adminsdk-oybuw-1689b30588.json" with { type: "json" };
 
 initializeApp({
     credential: cert(serviceAccount),
+    storageBucket: "sbhacks-xi.appspot.com",
 });
 
 const storage = getStorage();

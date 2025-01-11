@@ -17,9 +17,18 @@ export const addUserToFirestore = functions.auth.user().onCreate(async (user) =>
         // Save the user document to Firestore
         await firestore.collection("users").doc(user.uid).set(userDocument);
 
-        logger.info(`User ${user.uid} added to Firestore successfully.`);
+        // Retrieve the user document to verify it was added
+        const userDocSnapshot = await firestore.collection("users").doc(user.uid).get();
+
+        if (userDocSnapshot.exists) {
+            logger.info(`User ${user.uid} added to Firestore successfully.`);
+        } else {
+            logger.error("Error adding user to Firestore or retrieving document:", error);
+            throw new Error("Failed to add user to Firestore.");
+        }
+
     } catch (error) {
-        logger.error("Error adding user to Firestore:", error);
+        logger.error("Error adding user to Firestore or retrieving document:", error);
         throw new Error("Failed to add user to Firestore.");
     }
 });
