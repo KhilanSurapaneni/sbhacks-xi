@@ -4,8 +4,15 @@ import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 import { logger } from "firebase-functions";
 import { onRequest } from "firebase-functions/v2/https";
+import dotenv from 'dotenv';
+import fs from 'fs';
 
-import serviceAccount from "/Users/khilansurapaneni/sbhacks-xi/backend/sbhacks-xi-a4fd0-firebase-adminsdk-oybuw-1689b30588.json" with { type: "json" };
+
+dotenv.config({ path: '/Users/khilansurapaneni/sbhacks-xi/backend/.env' });
+
+// Load the service account JSON file dynamically
+const serviceAccountPath = process.env.PATH_TO_SERVICE_ACCOUNT_JSON;
+const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
 
 initializeApp({
     credential: cert(serviceAccount),
@@ -16,4 +23,4 @@ const storage = getStorage();
 const firestore = getFirestore();
 const auth = getAuth();
 
-export { firestore, storage, logger, onRequest , auth };
+export { firestore, storage, logger, onRequest, auth };
