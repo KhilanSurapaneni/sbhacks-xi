@@ -4,6 +4,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 import { logger } from "firebase-functions";
 import { onRequest } from "firebase-functions/v2/https";
+import { onDocumentCreated } from "firebase-functions/v2/firestore";
 import dotenv from 'dotenv';
 import fs from 'fs';
 
@@ -23,4 +24,4 @@ const storage = getStorage();
 const firestore = getFirestore();
 const auth = getAuth();
 
-export { firestore, storage, logger, onRequest, auth };
+export { firestore, storage, logger, onRequest, auth, onDocumentCreated };
