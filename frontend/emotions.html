@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mindful Moments - Journal Entry</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<style>
+    /* Journal Entry Form Section Styling */
+    #journal-entry {
+        text-align: center;
+        padding: 2rem 1rem;
+        color: #333333; /* Ensures text is black */
+    }
+
+    #journal-entry .major h2 {
+        font-size: 2rem;
+        color: #007bff; /* Matches button color for consistency */
+    }
+
+    #form-wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .form-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Ensures content is vertically centered */
+    }
+
+    .form-field {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #333333;
+    }
+
+    .form-field textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-field label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    /* Submit Button Styling */
+    .form-submit-button {
+        width: 100%;
+        padding: 10px;
+        padding-top: 0px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px; /* Remove excessive padding above the button */
+        text-align: center; /* Ensure button text is centered */
+    }
+
+    .form-submit-button:hover {
+        background-color: #0056b3;
+    }
+
+    input[type="file"] {
+        padding: 5px;
+    }
+</style>
+
+
+<!-- Journal Entry Form Section -->
+<section id="journal-entry" class="main special">
+    <header class="major">
+        <h2>Mindful Journal Entry</h2>
+        <p>Share your thoughts and feelings. Add media or audio for a more personal touch.</p>
+    </header>
+
+    <div id="form-wrapper">
+        <div class="form-container">
+            <form id="journalEntryForm" enctype="multipart/form-data">
+                <!-- Emotion Field -->
+                <div class="form-field">
+                    <label for="primaryEmotion">Primary Emotion</label>
+                    <select name="primaryEmotion" id="primaryEmotion" required>
+                        <option value="happy">Happy</option>
+                        <option value="sad">Sad</option>
+                        <option value="anxious">Anxious</option>
+                        <option value="calm">Calm</option>
+                        <option value="angry">Angry</option>
+                        <option value="excited">Excited</option>
+                    </select>
+                </div>
+
+                <!-- Physical State Field -->
+                <div class="form-field">
+                    <label for="physicalState">Physical State</label>
+                    <select name="physicalState" id="physicalState" required>
+                        <option value="energetic">Energetic</option>
+                        <option value="tired">Tired</option>
+                        <option value="sick">Sick</option>
+                        <option value="rested">Rested</option>
+                        <option value="hungry">Hungry</option>
+                    </select>
+                </div>
+
+                <!-- Description Text Field -->
+                <div class="form-field">
+                    <label for="descriptionText">Description</label>
+                    <textarea name="descriptionText" id="descriptionText" placeholder="Describe your thoughts or feelings"></textarea>
+                </div>
+
+                <!-- Media Upload -->
+                <div class="form-field">
+                    <label for="media">Upload Media (Images/Videos)</label>
+                    <input type="file" name="media" accept="image/*,video/*" multiple />
+                </div>
+
+                <!-- Audio Upload -->
+                <div class="form-field">
+                    <label for="descriptionAudio">Upload Audio</label>
+                    <input type="file" name="descriptionAudio" accept="audio/*" />
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-field">
+                    <button type="submit" class="form-submit-button">Submit Journal Entry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>
