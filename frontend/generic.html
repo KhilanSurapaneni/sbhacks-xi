@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Mindful Moments - Calendar</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Inline styles for calendar integration */
+        .calendar {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            color: black;
+        }
+
+        .calendar-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .calendar-body {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            padding: 10px;
+            color: black;
+        }
+
+        .calendar-day {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        textarea#journal-entry::placeholder {
+            color: black !important;
+            opacity: 1 !important;
+        }
+
+        #journal-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none;
+            width: 300px;
+        }
+
+        #journal-modal textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .text-button {
+            color: black;
+            background: gray;
+        }
+
+        .text-journal {
+            color: black;
+            border-color: black;
+        }
+
+        ::placeholder {
+            color: black;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Interactive Calendar</h1>
+        <p>Use this calendar to journal your thoughts and track your moments.</p>
+    </header>
+
+    <div class="calendar">
+        <div class="calendar-header">
+            <h2 id="month-year"></h2>
+        </div>
+        <div class="calendar-body" id="calendar-body">
+            <!-- Calendar days will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="journal-modal">
+        <h3 class="text-journal" id="selected-date"></h3>
+        <textarea class="text-journal" id="journal-entry" placeholder="Write your journal entry..."></textarea>
+        <button class="text-button" id="save-button">Save</button>
+        <button class="text-button" id="cancel-button">Cancel</button>
+    </div>
+
+    <script src="calendar.js"></script>
+</body>
+</html>
