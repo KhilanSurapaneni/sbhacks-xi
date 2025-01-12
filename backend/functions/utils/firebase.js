@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 
 
-dotenv.config({ path: '/Users/khilansurapaneni/sbhacks-xi/backend/.env' });
+dotenv.config({ path: '/Users/rahuljoshi/Desktop/sbhacks-xi/.env' });
 
 // Load the service account JSON file dynamically
 const serviceAccountPath = process.env.PATH_TO_SERVICE_ACCOUNT_JSON;
