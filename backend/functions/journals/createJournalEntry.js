@@ -5,6 +5,7 @@ import path from "path"; // Node.js path utilities
 import { v4 as uuidv4 } from "uuid"; // Library to generate unique identifiers
 import busboy from "busboy"; // Library to handle multipart/form-data
 
+
 // Define a Firebase HTTPS-triggered function to create a new postcard
 export const createJournalEntry = onRequest(async(req, res) => {
         if (req.method !== "POST") {

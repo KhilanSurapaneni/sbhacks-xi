@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mindful Moments - Calendar</title>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Mindful Moments - Calendar</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
@@ -30,7 +30,7 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 5px;
             padding: 10px;
-            color: black
+            color: black;
         }
 
         .calendar-day {
@@ -43,12 +43,10 @@
             border-radius: 4px;
         }
 
-		textarea#journal-entry::placeholder {
-			color: black !important;
-			opacity: 1 !important; /* Ensures full opacity */
-		}
-
-
+        textarea#journal-entry::placeholder {
+            color: black !important;
+            opacity: 1 !important;
+        }
 
         #journal-modal {
             position: fixed;
@@ -93,10 +91,8 @@
 
         ::placeholder {
             color: black;
-            opacity: 1; /* Firefox */
+            opacity: 1;
         }
-
-
     </style>
 </head>
 <body>
